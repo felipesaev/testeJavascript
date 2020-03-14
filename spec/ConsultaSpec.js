@@ -7,8 +7,14 @@ describe("Consulta", function() {
     });
     it("deve cobrar 25 por cada procedimento comum", function() {
         var felipe = new Paciente("Felipe", 26, 65, 1.75);
-        var consulta = new Consulta(["proc1", "proc2"], false, false);
+        var consulta = new Consulta(felipe,["proc1", "proc2"], false, false);
 
-        expect(consulta.preco()).toEqual(50)
+        expect(consulta.preco()).toEqual(50);
+    });
+
+    it("deve cobrar preco especifico dependendo do procedimento", function() {
+        var felipe = new Paciente("Felipe", 26, 65, 1.75);
+        var consulta = new Consulta(felipe,["procedimento-comum", "raio-x", "procedimento-comum", "gesso"], false, false);
+        expect(consulta.preco()).toEqual(25 + 55 + 25 + 32);
     });
 })
