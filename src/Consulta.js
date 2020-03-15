@@ -1,4 +1,5 @@
 function Consulta(paciente, procedimentos, particular, retorno) {
+    
     var clazz = {
         preco: function () {
             if (retorno) return 0;
